@@ -2,14 +2,32 @@
 // Given a list of numbers and a number k, return whether any two numbers from the list add up to k.
 // For example, given [10, 15, 3, 7] and k of 17, return true since 10 + 7 is 17.
 
-const addUp = function (arr, k) {
-  let checkForK = [];
-  for (let i = 1; i < arr.length; i++) {
-    let initial = arr[0];
-    initial += arr[i];
-    checkForK.push(initial);
+// const addUp = function (arr, k) {
+//   let checkForK = [];
+//   for (let i = 1; i < arr.length; i++) {
+//     let initial = arr[0];
+//     initial += arr[i];
+//     checkForK.push(initial);
+//   }
+//   console.log(checkForK.includes(k));
+// };
+
+// addUp([10, 15, 3, 7], 17);
+
+//2
+// Given an array of integers, return a new array such that each element at index i of the new array is the product of all the numbers in the original array except the one at i.
+// For example, if our input was [1, 2, 3, 4, 5], the expected output would be [120, 60, 40, 30, 24]. If our input was [3, 2, 1], the expected output would be [2, 3, 6].
+
+const noRepeat = function (arr) {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    const removed = arr.splice(i, 1);
+    const result = arr.reduce((acc, curr) => acc * curr);
+    newArr.push(result);
+    arr.splice(i, 0, removed);
   }
-  console.log(checkForK.includes(k));
+  console.log(newArr);
 };
 
-addUp([10, 15, 3, 7], 17);
+noRepeat([1, 2, 3, 4, 5]);
+noRepeat([3, 2, 1]);
