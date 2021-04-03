@@ -3,23 +3,24 @@
 // For example, given [10, 15, 3, 7] and k of 17, return true since 10 + 7 is 17.
 
 const addUp = function (arr, k) {
-  let checkForK = [],
-    total,
-    initial;
-  for (let i = 0; i <= arr.length; i++) {
+  let checkForK = [];
+  let total;
+  let initial;
+  for (let i = 0; i < arr.length; i++) {
     initial = arr[0];
     for (let m = 1; m < arr.length; m++) {
       total = initial + arr[m];
       checkForK.push(total);
+      console.log(checkForK);
     }
     arr.shift();
   }
+
   console.log(checkForK.includes(k));
 };
 
 addUp([10, 15, 3, 7], 17);
-addUp([10, 15, 3, 7], 10);
-addUp([10, 20, 10, 40, 50, 60, 70, 30], 50);
+// addUp([10, 15, 3, 7], 18);
 
 //****************************2
 // Given an array of integers, return a new array such that each element at index i of the new array is the product of all the numbers in the original array except the one at i.
@@ -65,18 +66,15 @@ addUp([10, 20, 10, 40, 50, 60, 70, 30], 50);
 //   let maxInteger = Math.max(...arr);
 //   let minInteger = Math.min(...arr);
 //   let arr2 = [];
-//   let isItMax;
 
 //   for (let i = minInteger; i <= maxInteger; i++) {
 //     arr2.push(i);
 //     if (i > 0 && !arr.includes(i)) {
 //       console.log(i);
 //       console.log(arr2);
-//       isItMax = false;
 //       break;
 //     }
 //   }
-//   console.log(maxInteger + 1);
 // };
 
 // returnPositiveInteger(3, 4, -1, 1); // 2
