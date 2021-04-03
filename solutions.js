@@ -2,24 +2,24 @@
 // Given a list of numbers and a number k, return whether any two numbers from the list add up to k.
 // For example, given [10, 15, 3, 7] and k of 17, return true since 10 + 7 is 17.
 
-const addUp = function (arr, k) {
-  let checkForK = [],
-    total,
-    initial;
-  for (let i = 0; i <= arr.length; i++) {
-    initial = arr[0];
-    for (let m = 1; m < arr.length; m++) {
-      total = initial + arr[m];
-      checkForK.push(total);
-    }
-    arr.shift();
-  }
-  console.log(checkForK.includes(k));
-};
+// const addUp = function (arr, k) {
+//   let checkForK = [],
+//     total,
+//     initial;
+//   for (let i = 0; i <= arr.length; i++) {
+//     initial = arr[0];
+//     for (let m = 1; m < arr.length; m++) {
+//       total = initial + arr[m];
+//       checkForK.push(total);
+//     }
+//     arr.shift();
+//   }
+//   console.log(checkForK.includes(k));
+// };
 
-addUp([10, 15, 3, 7], 17);
-addUp([10, 15, 3, 7], 10);
-addUp([10, 20, 10, 40, 50, 60, 70, 30], 50);
+// addUp([10, 15, 3, 7], 17);
+// addUp([10, 15, 3, 7], 10);
+// addUp([10, 20, 10, 40, 50, 60, 70, 30], 50);
 
 //****************************2
 // Given an array of integers, return a new array such that each element at index i of the new array is the product of all the numbers in the original array except the one at i.
@@ -61,23 +61,22 @@ addUp([10, 20, 10, 40, 50, 60, 70, 30], 50);
 // For example, the input [3, 4, -1, 1] should give 2. The input [1, 2, 0] should give 3.
 // You can modify the input array in-place.
 
-// const returnPositiveInteger = (...arr) => {
-//   let maxInteger = Math.max(...arr);
-//   let minInteger = Math.min(...arr);
-//   let arr2 = [];
-//   let isItMax;
+const returnPositiveInteger = (...arr) => {
+  let maxInt = Math.max(...arr);
+  let minInt = Math.min(...arr);
+  let minLowestInt;
 
-//   for (let i = minInteger; i <= maxInteger; i++) {
-//     arr2.push(i);
-//     if (i > 0 && !arr.includes(i)) {
-//       console.log(i);
-//       console.log(arr2);
-//       isItMax = false;
-//       break;
-//     }
-//   }
-//   console.log(maxInteger + 1);
-// };
+  for (let i = minInt; i <= maxInt; i++) {
+    if (i > 0 && !arr.includes(i)) {
+      minLowestInt = i;
+      break;
+    }
+    minLowestInt = maxInt + 1;
+  }
+  console.log(minLowestInt);
+};
 
-// returnPositiveInteger(3, 4, -1, 1); // 2
-// returnPositiveInteger(1, 2, 0); // 3
+returnPositiveInteger(3, 4, -1, 1); // 2
+returnPositiveInteger(1, 2, 0); // 3
+returnPositiveInteger(-3, -5, 1, 9, 22, 0, -15); // 2
+returnPositiveInteger(3, 6, 7, 9); // 4
